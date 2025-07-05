@@ -3,8 +3,8 @@ import { Link } from 'react-router'
 
 function Navbar() {
     return (
-        <nav className='bg-gray-800 text-shadow-fuchsia-200 '>
-            <div className="container px-3 md:px-0 flex justify-between ml-auto mr-auto py-4">
+        <nav className='bg-gray-800 text-shadow-fuchsia-200  sticky top-0 z-50'>
+            <div className="mx-auto max-w-2xl px-4  sm:px-6 lg:max-w-7xl lg:px-8 md:px-0 flex justify-between ml-auto mr-auto py-4">
                 <div className='flex align-center'>
                     <Link to='/' className=' text-2xl mb-0'>
                         <h2 className='text-shadow-fuchsia-200 tracking-wide'>Cartzie</h2></Link>
