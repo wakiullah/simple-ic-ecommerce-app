@@ -43,11 +43,26 @@ function Cart() {
                         </div>
                     ))}
                 </div>
-                <div className="col-span-3 col-start-7">
-                    <div className='bg-gray-300'>
-                        to kal lsdf
-                        asdfjkasd
-                        <h3>fasdjfklsad</h3>
+                <div className="col-span-3 col-start-7 mt-8">
+                    <div className=' border border-gray-200 rounded-lg p-4 ml-4'>
+                        <div className='flex justify-between mt-2'>
+                            <h1 className='text-xl font-bold mb-1'>Total:</h1>
+                            <p className='text-xl'>$499</p>
+                        </div>
+                        <hr className='border-gray-200' />
+                        <div className='flex justify-between mt-4'>
+                            <p>Sub-total:</p>
+                            <p>$499</p>
+                        </div>
+                        <div className='flex justify-between mt-2'>
+                            <p>Delivary:</p>
+                            <p>$499</p>
+                        </div>
+                        <div>
+                            <button className='bg-gray-800 px-3 py-2 block w-full text-amber-50 mt-5 hover:bg-gray-700 cursor-pointer'>
+                                Checkout
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

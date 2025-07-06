@@ -1,12 +1,29 @@
 import React from 'react'
 import { useParams } from 'react-router'
+import { products } from '../products/products'
 function ProductDetails() {
     const params = useParams()
-    console.log(params.pid);
-
+    const displayProduct = products.filter(product => product.id === params.pid)[0]
+    console.log(params.pid, displayProduct);
 
     return (
-        <div>ProductDetails</div>
+        <div className='mx-auto max-w-2xl px-4  sm:px-6 lg:max-w-7xl lg:px-8 md:px-0 pt-12'>
+            <div className='grid grid-cols-2 grid-rows-1 gap-6'>
+                <div className=''>
+                    <img src={displayProduct.images[1]} className='w-full h-auto ' alt="" />
+                </div>
+                <div className=' '>
+                    <h1 className='text-3xl font-bold'>{displayProduct.name}</h1>
+                    <p className='mt-2.5 bg-amber-700 text-amber-50 inline-block px-2.5 rounded pb-0.5 mb-3'>{displayProduct.rating} rating!</p>
+                    <p className='text-xl mb-3'>${displayProduct.price}</p>
+                    <p>{displayProduct.description}</p>
+                    <button className='bg-gray-800 px-12 py-2 block text-amber-50 mt-5 hover:bg-gray-700 cursor-pointer'>
+                        Checkout
+                    </button>
+                </div>
+            </div>
+           
+        </div>
     )
 }
 
