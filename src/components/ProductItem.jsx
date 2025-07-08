@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router'
 import CartIcon from './carticon';
+import { CartContextDispatch } from '../Features/Cart/CartContext';
 
 function ProductItem({ product }) {
+    const dispatch = useContext(CartContextDispatch)
 
     const addToCartHandler = () => {
-        console.log('Add to cart clicked');
-
+        console.log(product);
+        dispatch({ type: "ADD_PRODUCT", payload: product })
     }
 
     return (
