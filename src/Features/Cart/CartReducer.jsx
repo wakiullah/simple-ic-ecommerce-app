@@ -1,3 +1,4 @@
+
 export const cartInitialValue = {
     totalProducts: 0,
     totalPrice: 0,
@@ -17,7 +18,6 @@ export const CartReducer = (state, action) => {
                 } else {
                     updatedProduct = [...state.cart, { ...product, totalItem: 1 }]
                 }
-                console.log(updatedProduct);
 
                 return {
                     totalProducts: state.totalProducts + 1,
@@ -39,6 +39,25 @@ export const CartReducer = (state, action) => {
                 return {
                     totalProducts: state.totalProducts - 1,
                     totalPrice: state.totalPrice - product.price,
+                    cart: updatedProduct
+                }
+            }
+        case "DELETE_PRODUCT":
+            {
+                const product = action.payload
+                const isExistingIndex = state.cart?.findIndex(item => item.id === product.id);
+                let updatedProduct;
+                console.log(isExistingIndex);
+
+
+                if (isExistingIndex > -1) {
+                    updatedProduct = state.cart.filter(item => item.id !== product.id)
+                } else {
+                    updatedProduct = [...state.cart]
+                }
+                return {
+                    totalProducts: state.totalProducts - state.cart[isExistingIndex].totalItem,
+                    totalPrice: state.totalPrice - product.price * state.cart[isExistingIndex].totalItem,
                     cart: updatedProduct
                 }
             }

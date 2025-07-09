@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-function Filter() {
+function Filter({ onFilter }) {
     const [formData, setFormData] = useState({
         price: '',
     });
@@ -9,6 +9,7 @@ function Filter() {
         setFormData(() => ({
             [name]: value,
         }));
+        onFilter(value)
     };
 
 
@@ -23,7 +24,7 @@ function Filter() {
                         value={formData.price}
                         onChange={handleChange}
                     >
-                        <option value="">-- Select --</option>
+                        <option value="">-- Default --</option>
                         <option value="low">Lower to heigh</option>
                         <option value="heigh">Heigh to Low</option>
                     </select>
