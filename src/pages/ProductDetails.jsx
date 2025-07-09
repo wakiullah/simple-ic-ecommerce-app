@@ -7,12 +7,12 @@ function ProductDetails() {
     console.log(params.pid, displayProduct);
 
     return (
-        <div className='mx-auto max-w-2xl px-4  sm:px-6 lg:max-w-7xl lg:px-8 md:px-0 pt-12'>
+        <div className='mx-auto min-w-sm max-w-2xl px-4  sm:px-6 lg:max-w-7xl lg:px-8 md:px-0 pt-12'>
             <div className='grid grid-cols-2 grid-rows-1 gap-6'>
-                <div className=''>
+                <div className='col-span-2 md:col-span-1'>
                     <img src={displayProduct.images[1]} className='w-full h-auto ' alt="" />
                 </div>
-                <div className=' '>
+                <div className='col-span-2 md:col-span-1'>
                     <h1 className='text-3xl font-bold'>{displayProduct.name}</h1>
                     <p className='mt-2.5 bg-amber-700 text-amber-50 inline-block px-2.5 rounded pb-0.5 mb-3'>{displayProduct.rating} rating!</p>
                     <p className='text-xl mb-3'>${displayProduct.price}</p>
@@ -22,7 +22,7 @@ function ProductDetails() {
                     </button>
                 </div>
             </div>
-           
+
         </div>
     )
 }

@@ -19,10 +19,26 @@ export const CartReducer = (state, action) => {
                 }
                 console.log(updatedProduct);
 
-
                 return {
                     totalProducts: state.totalProducts + 1,
                     totalPrice: state.totalPrice + product.price,
+                    cart: updatedProduct
+                }
+            }
+        case "REMOVE_PRODUCT":
+            {
+                const product = action.payload
+                const isExistingIndex = state.cart?.findIndex(item => item.id === product.id);
+                let updatedProduct;
+
+                if (state.cart[isExistingIndex].totalItem > 1) {
+                    updatedProduct = state.cart.map(item => item.id === product.id ? { ...item, totalItem: item.totalItem - 1, } : item)
+                } else {
+                    updatedProduct = state.cart.filter(item => item.id !== product.id)
+                }
+                return {
+                    totalProducts: state.totalProducts - 1,
+                    totalPrice: state.totalPrice - product.price,
                     cart: updatedProduct
                 }
             }
