@@ -2,13 +2,15 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router'
 import CartIcon from './carticon';
 import { CartContextDispatch } from '../Features/Cart/CartContext';
+import { toast } from 'react-toastify';
 
 function ProductItem({ product }) {
     const dispatch = useContext(CartContextDispatch)
 
     const addToCartHandler = () => {
-        console.log(product);
         dispatch({ type: "ADD_PRODUCT", payload: product })
+        toast('Add to Cart Successful!')
+
     }
 
     return (

@@ -1,12 +1,17 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router'
 import { CartContext } from '../Features/Cart/CartContext'
+import { ToastContainer } from 'react-toastify'
 
 function Navbar() {
     const cart = useContext(CartContext)
 
+
     return (
         <nav className='bg-gray-800  min-w-sm text-shadow-fuchsia-200  sticky top-0 z-50'>
+            <ToastContainer 
+            position="top-center"
+                autoClose={3000} />
             <div className="mx-auto max-w-2xl px-4  sm:px-6 lg:max-w-7xl lg:px-8 md:px-0 flex justify-between ml-auto mr-auto py-4">
                 <div className='flex align-center'>
                     <Link to='/' className=' text-2xl mb-0'>

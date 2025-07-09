@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { CartContext, CartContextDispatch } from '../Features/Cart/CartContext'
+import { toast } from 'react-toastify'
 
 function Cart() {
     const cart = useContext(CartContext)
     const dispatch = useContext(CartContextDispatch)
-    console.log(cart);
+    const navigate = useNavigate()
 
     const incriseHandler = (product) => {
         dispatch({ type: "ADD_PRODUCT", payload: product })
@@ -15,6 +16,21 @@ function Cart() {
     }
     const deleteHandler = (product) => {
         dispatch({ type: "DELETE_PRODUCT", payload: product })
+        toast('Remove Product Successful!')
+
+    }
+
+    const orderProducts = () => {
+        if (cart.totalProducts) {
+            dispatch({ type: "PLACE_ORDER" })
+            toast('Order place Successful!')
+            navigate('/')
+        } else {
+            toast('Please add something!')
+
+        }
+
+
     }
 
     return (
@@ -73,7 +89,7 @@ function Cart() {
                             <p>$99</p>
                         </div>
                         <div>
-                            <button className='bg-gray-800 px-3 py-2 block w-full text-amber-50 mt-5 hover:bg-gray-700 cursor-pointer'>
+                            <button onClick={orderProducts} className='bg-gray-800 px-3 py-2 block w-full text-amber-50 mt-5 hover:bg-gray-700 cursor-pointer'>
                                 Checkout
                             </button>
                         </div>

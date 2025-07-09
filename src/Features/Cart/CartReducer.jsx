@@ -61,5 +61,9 @@ export const CartReducer = (state, action) => {
                     cart: updatedProduct
                 }
             }
+        case "PLACE_ORDER":
+            {
+                return cartInitialValue
+            }
     }
 }
