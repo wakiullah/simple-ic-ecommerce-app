@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Filter from './filter'
+import Filter from './Filter'
 import { products } from '../products/products'
 import ProductItem from './ProductItem';
 
