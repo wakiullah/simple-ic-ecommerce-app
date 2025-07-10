@@ -1,4 +1,4 @@
-import React, { Children, useReducer } from 'react'
+import React, { useReducer } from 'react'
 import { CartContext, CartContextDispatch } from './CartContext'
 import { cartInitialValue, CartReducer } from './CartReducer'
 
