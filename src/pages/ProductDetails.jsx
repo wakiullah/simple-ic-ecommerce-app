@@ -1,17 +1,29 @@
-import React, { useContext } from 'react'
-import { useParams } from 'react-router'
+import React, { useContext, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router'
 import { products } from '../products/products'
 import { CartContextDispatch } from '../Features/Cart/CartContext'
 import { toast } from 'react-toastify'
+
 function ProductDetails() {
     const params = useParams()
+    const navigate = useNavigate()
     const displayProduct = products.filter(product => product.id === params.pid)[0]
-
     const dispatch = useContext(CartContextDispatch)
+
+    useEffect(() => {
+        if (!displayProduct) {
+            console.log('Product not found')
+            navigate('/not-found-product')
+        }
+    }, [displayProduct, navigate])
 
     const addToCartHandler = () => {
         dispatch({ type: "ADD_PRODUCT", payload: displayProduct })
         toast('Add to Cart Successful!')
+    }
+
+    if (!displayProduct) {
+        return null // Prevent rendering if product is not found
     }
 
     return (
@@ -26,7 +38,7 @@ function ProductDetails() {
                     <p className='text-xl mb-3'>${displayProduct.price}</p>
                     <p>{displayProduct.description}</p>
                     <button onClick={addToCartHandler} className='bg-gray-800 px-12 py-2 block text-amber-50 mt-5 hover:bg-gray-700 cursor-pointer'>
-                        Checkout
+                        Add To Cart
                     </button>
                 </div>
             </div>
