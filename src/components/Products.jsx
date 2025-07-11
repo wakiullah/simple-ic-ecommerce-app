@@ -68,8 +68,8 @@ function Products() {
 
 
     return (<>
-        <div className='text-center px-4 md:px-0'>
-            <input className='text-center inline-block  w-full md:-w-1/2 lg:w-1/3 py-2 rounded  mt-5 border' ref={searchInputRef} value={search} onChange={searchInputhandler} type="text" name="search" id="" placeholder='Search Products' />
+        <div className='text-center px-4 mt-5 md:px-0'>
+            <input className='text-center inline-block  w-full md:-w-1/2 lg:w-1/3 py-2 rounded  mt-5 border border-amber-600' ref={searchInputRef} value={search} onChange={searchInputhandler} type="text" name="search" id="" placeholder='Search Products' />
         </div>
         <Filter onFilter={onFilterHandler} />
         <div className="bg-white">
