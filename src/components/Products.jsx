@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { products } from '../products/products'
 import ProductItem from './ProductItem';
-import Filter from './filter';
+import Filter from './Filter';
 
 function Products() {
     const [ourProduct, setOurProduct] = useState(products)
